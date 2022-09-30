@@ -2,6 +2,7 @@ package study;
 
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatExceptionOfType;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 import org.junit.jupiter.api.DisplayName;
@@ -38,7 +39,7 @@ public class StringTest {
 
 
   @Test
-  @DisplayName("요구사항 3 - abc 값이 주어졌을 때 charAt() 메소드를 활용 StringIndexOutOfBoundsException이 발생하는 부분에 대한 학습")
+  @DisplayName("요구사항 3 - abc 값이 주어졌을 때 charAt() 메소드를 활용 StringIndexOutOfBoundsException이 발생하는 부분에 대한 assertThatThrownBy 학습")
   void charAtTest() {
 
     String value = "abc";
@@ -46,4 +47,15 @@ public class StringTest {
     assertThatThrownBy(() -> value.charAt(index)).isInstanceOf(StringIndexOutOfBoundsException.class)
         .hasMessageContaining("String index out of range: %d", index);
   }
+
+  @Test
+  @DisplayName("요구사항 3 - abc 값이 주어졌을 때 charAt() 메소드를 활용 StringIndexOutOfBoundsException이 발생하는 부분에 대한 assertThatExceptionOfType 학습")
+  void charAtTest2() {
+
+    String value = "abc";
+    int index = 10;
+    assertThatExceptionOfType(IndexOutOfBoundsException.class)
+        .isThrownBy(() -> value.charAt(index)).withMessageContaining("String index out of range: %d", index);
+  }
+
 }
