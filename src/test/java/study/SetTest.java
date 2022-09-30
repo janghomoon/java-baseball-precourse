@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class SetTest {
@@ -41,5 +42,11 @@ public class SetTest {
   }
 
 
+  @DisplayName("요구사항 3 - contains() 메소드와 CsvSource 활용해 포함되면 true, 없으면 false 가 반환 되는지 확인 ")
+  @ParameterizedTest
+  @CsvSource(value = {"1:true","2:true","3:true","4:false","5:false"},delimiter = ':')
+  void isSetContainTest(int value, boolean result) {
+    assertThat(numbers.contains(value)).isEqualTo(result);
+  }
 
 }
