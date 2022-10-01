@@ -10,4 +10,16 @@
 ##  학습테스트 
 
 * String 클래스 학습테스트 
-* Set Collection 학습테스트 
+* Set Collection 학습테스트
+
+## 야구게임 제약사항
+
+* JDK 8  실행 가능 코드
+* JDK에서제공하는Random및ScannerAPI대신camp.nextstep.edu.missionutils에서제공하
+  는Randoms및ConsoleAPI를사용
+* 사용자가잘못된값을입력할경우IllegalArgumentException을발생시킨후애플리케이션은종료
+* 코드 컨벤션 google code Style
+* indent(인덴트,들여쓰기)depth를2가넘지않도록구현한다.1까지만허용
+* 함수(또는메소드)의길이가10라인을넘어가지않도록구현한다.
+
+
