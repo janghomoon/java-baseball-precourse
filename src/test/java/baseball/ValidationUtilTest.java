@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.Arrays;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import util.ValidationUtil;
+import baseball.util.ValidationUtil;
 
 public class ValidationUtilTest {
 
