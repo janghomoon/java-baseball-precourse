@@ -6,6 +6,14 @@
 ## 과제 제출 과정
 * [과제 제출 방법](https://github.com/next-step/nextstep-docs/tree/master/precourse)
 
+## 커밋 메세지
+
+* feat     : 새로운 기능 추가
+* fix      : 버그 수정
+* refactor : 프로덕션 코드 리팩토링
+* comment  : 필요한 주석 추가 및 변경
+* docs     : 문서를 수정한 경우
+* test     : 테스트 추가, 테스트 리팩토링(프로덕션 코드 변경 X)
 
 ##  학습테스트 
 
