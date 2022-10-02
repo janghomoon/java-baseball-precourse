@@ -9,8 +9,7 @@ public class ParserUtil {
 
   public static List<Integer> StringToIntegerList(String value) {
     List<Integer> returnList = new ArrayList<>();
-    //빈값 체크
-    //중복체크
+
     if (StringUtils.isBlank(value)) {
       throw new IllegalArgumentException();
     }
@@ -21,15 +20,21 @@ public class ParserUtil {
     }
 
     for(int i = 0; i < value.length(); i++) {
-
-      returnList.add(Character.getNumericValue(value.charAt(i)));
+      Integer userBall = Character.getNumericValue(value.charAt(i));
+      userBallCheckNumber(userBall);
+      returnList.add(userBall);
     }
 
-    //숫자만 체크
     if (!ValidationUtil.isDuplication(returnList)) {
       throw new IllegalArgumentException();
     }
     return returnList;
+  }
+
+  private static void userBallCheckNumber(Integer userBall) {
+    if (!ValidationUtil.isNumber(userBall)) {
+      throw new IllegalArgumentException();
+    }
   }
 
 }
