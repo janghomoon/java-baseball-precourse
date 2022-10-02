@@ -19,9 +19,15 @@ public class ValidationUtil {
     return valueList.size() == MAX_LENGTH;
   }
 
+  public static boolean isLength(String value) {
+
+    return value.length() == MAX_LENGTH;
+  }
+
 
   public static boolean isDuplication(List<Integer> valueList) {
 
     return new HashSet<>(valueList).size() == valueList.size();
   }
+
 }
