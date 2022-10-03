@@ -26,9 +26,13 @@ public class BallInfo {
     return this.ballCnt;
   }
 
-  public BallInfo(List<Integer> userBalls, List<Integer> computerBalls) {
+  public void setUserBalls(List<Integer> userBalls) {
     this.userBalls = userBalls;
+  }
+  public void setComputerBalls(List<Integer> computerBalls) {
     this.computerBalls = computerBalls;
+  }
+  public void resetBallCnt() {
     this.ballCnt = 0;
     this.strikeCnt = 0;
   }

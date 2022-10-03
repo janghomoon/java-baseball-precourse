@@ -14,14 +14,14 @@ public class BallInfoTest {
 
   @BeforeEach
   void setUp() {
-    ballInfo = new BallInfo(Arrays.asList(1, 2, 3), Arrays.asList(5, 1, 3)); //내 입력 값, 컴퓨터 입력 값
+    ballInfo.setUserBalls(Arrays.asList(1, 2, 3));
+    ballInfo.setComputerBalls(Arrays.asList(5, 1, 3));
   }
 
   @Test
   @DisplayName("볼정보 입력후 스트라이크 판독 ")
   void strikeCount() {
-
-    ballInfo.calculationStrikeCount();
+    ballInfo.score();
     assertThat(1).isEqualTo(ballInfo.getStrikeCnt());
 
   }
@@ -29,8 +29,7 @@ public class BallInfoTest {
   @Test
   @DisplayName("볼정보 입력후 볼 판독 ")
   void ballCount() {
-
-    ballInfo.calculationBallCount();
+    ballInfo.score();
     assertThat(1).isEqualTo(ballInfo.getBallCnt());
   }
 

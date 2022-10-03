@@ -3,26 +3,26 @@ package baseball.service;
 import baseball.domain.BallInfo;
 import baseball.util.MessageUtil;
 import baseball.util.ParserUtil;
-import baseball.util.RandomUtil;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 
 public class BaseBallService {
 
-  BallInfo ballInfo;
-
+  BallInfo ballInfo = new BallInfo();
+  public BaseBallService(List<Integer> computerBalls) {
+    ballInfo.setComputerBalls(computerBalls);
+  }
   public void play() {
     int strike = 0;
-    List<Integer> computerBalls = RandomUtil.getRandomNumbers();
     while (strike != 3) {
-      playBaseBall(computerBalls);
+      playBaseBall();
       MessageUtil.ballCountMsg(ballInfo.getBallCnt(), ballInfo.getStrikeCnt());
       strike = ballInfo.getStrikeCnt();
     }
   }
 
-  private void playBaseBall(List<Integer> computerBalls) {
-    setBallInfo(computerBalls);
+  private void playBaseBall() {
+    setBallInfo();
     score();
   }
 
@@ -30,8 +30,9 @@ public class BaseBallService {
     ballInfo.score();
   }
 
-  private void setBallInfo(List<Integer> computerBalls) {
-    ballInfo = new BallInfo(getUserBalls(), computerBalls);
+  private void setBallInfo() {
+    ballInfo.resetBallCnt();
+    ballInfo.setUserBalls(getUserBalls());
 
   }
 

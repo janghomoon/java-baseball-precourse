@@ -2,21 +2,26 @@ package baseball.controller;
 
 import baseball.service.BaseBallService;
 import baseball.util.MessageUtil;
+import baseball.util.RandomUtil;
 import camp.nextstep.edu.missionutils.Console;
 
 public class BaseBallController {
 
-  BaseBallService baseBallService = new BaseBallService();
+  BaseBallService baseBallService;
 
   final Integer RE_GAME = 1;
   final Integer END_GAME = 2;
 
   public void run() throws IllegalArgumentException {
+    setGame();
     startGame();
     endGame();
     reGame();
   }
 
+  private void setGame() {
+    baseBallService = new BaseBallService(RandomUtil.getRandomNumbers());
+  }
   private void startGame() {
     baseBallService.play();
 
