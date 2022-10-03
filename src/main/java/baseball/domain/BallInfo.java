@@ -4,59 +4,68 @@ import java.util.List;
 
 public class BallInfo {
 
+  final int BALL_SIZE = 3;
   private List<Integer> userBalls;
   private List<Integer> computerBalls;
   private Integer strikeCnt = 0;
   private Integer ballCnt = 0;
 
+  public List<Integer> getUserBalls() {
+    return this.userBalls;
+  }
+
+  public List<Integer> getComputerBalls() {
+    return this.computerBalls;
+  }
+
   public Integer getStrikeCnt() {
-    return strikeCnt;
+    return this.strikeCnt;
   }
 
   public Integer getBallCnt() {
-    return ballCnt;
+    return this.ballCnt;
   }
 
   public BallInfo(List<Integer> userBalls, List<Integer> computerBalls) {
     this.userBalls = userBalls;
     this.computerBalls = computerBalls;
+    this.ballCnt = 0;
+    this.strikeCnt = 0;
   }
 
-  public void calculationStrikeCount() {
-    for (int idx = 0; idx < userBalls.size(); idx++) {
-      Strike(userBalls.get(idx), computerBalls.get(idx));
+
+
+  public void score() {
+    for (int i = 0; i < BALL_SIZE; i++) {
+      compute(i);
     }
   }
 
-  private void Strike(Integer userBall, Integer computerBall) {
-    if (userBall == computerBall) {
-      this.strikeCnt++;
+  private void compute(int index) {
+    int temp = -1;
+    for (int i = 0; i < computerBalls.size(); i++) {
+      if (computerBalls.get(i) == userBalls.get(index)) {
+        temp = i;
+        break;
+      }
     }
+    updateBallCount(index, temp);
   }
 
-  public void calculationBallCount() {
-    for (Integer idx = 0; idx < userBalls.size(); idx++) {
-      ball(idx);
-    }
-  }
-
-  private void ball(int idx) {
-    for (Integer index = 0; index < computerBalls.size(); index++) {
-      compareBall(idx, index, userBalls.get(idx), computerBalls.get(index));
-
-    }
-  }
-
-  private void compareBall(Integer idx, Integer index, Integer userBall, Integer computerBall) {
-    if (idx != index && userBall == computerBall) {
+  private void updateBallCount(int index, int temp) {
+    if (temp != index && temp != -1) {
       updateBall();
     }
+    if (temp == index) {
+      updateStrike();
+    }
+  }
+  private void updateStrike() {
+    this.strikeCnt++;
   }
 
   private void updateBall() {
     this.ballCnt++;
   }
-
-
 
 }

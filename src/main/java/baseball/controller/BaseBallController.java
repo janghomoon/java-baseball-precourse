@@ -18,7 +18,7 @@ public class BaseBallController {
   }
 
   private void startGame() {
-//    baseBallService.play();
+    baseBallService.play();
 
   }
 
